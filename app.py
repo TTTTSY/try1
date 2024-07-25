@@ -18,7 +18,7 @@ class Queue:
 
     def enqueue(self, username: str, password: str):
         new_node = Node(username, password)
-        if (self.head.next == None):
+        if self.head is None:
             self.head.next = new_node
         else:
             temp = new_node
@@ -44,9 +44,9 @@ def main():
     if (r==None or v==None):
         return render_template("index.html")
         
-    current = queue.head.next
+    current = queue.head
     found = 0
-    while current != None:
+    while current :
         if current.username == r and current.password == v:
             found = 1
         current = current.next
